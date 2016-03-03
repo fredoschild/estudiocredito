@@ -1,0 +1,50 @@
+#include<iostream>
+#include<string>                                    //cargamos librerias//
+using namespace std;
+int main()
+{
+    string name;
+    float sbas,gbas,tota,tota1,tota2;               //declaramos las variables flotantes//
+    int subt,puntaje,anti,bono;                     // declaramos los enteros//
+    cout<<"Estudio de Credito\n\n";                             
+    
+    cout<<"Por favor ingrese su primer Nombre:\t";cin>>name;    //salida   y lectura para la identificación del usuario//    
+    cout<<"Por favor ingrese los años de antigüedad en su empresa:\t";cin>>anti;    //salida   y lectura para ingresar los años de antiguedad en la empresa// 
+    cout<<endl<<"por favor digite sus ingresos mensuales:";cin>>sbas;     //salida   y lectura para digitar los ingresos mensuales//
+    
+    //condicional para determinar que el salario no sea menor a 0 y un else de continuidad para ingresar los gastos mensuales//
+    
+    if (sbas<=0)
+        cout<<"Debe ingresar el valor de su salario "<<endl;else
+    {cout<<"-ingrese el valor de sus gastos mensuales :\t";cin>>gbas;
+   
+   //operación matemática para determinar la diferencia del valor base descontando los gastos//
+    subt=sbas-gbas;
+
+//condicional para determinar el porcentaje a adicionar segun la antiguedad//
+    if(anti<1)
+    bono=anti*0;
+    else
+    bono=(anti*1.5);
+
+//condicional de apropiación para determinar el valor a prestar//
+    if(subt>=1000000)
+        puntaje=subt*bono;
+    else
+        puntaje=subt*0.5;
+    
+//total de cuota mensual aplicando tasas de Interes Efectivo Anual//
+    
+    tota=(puntaje*1.5/100)+puntaje/24;
+    tota1=(puntaje*1.8/100)+puntaje/36;
+    tota2=(puntaje*2/100)+puntaje/48;
+   
+  //impresiones//
+  
+    cout<<endl<<"la base para el calculo es:\t"<<subt<<endl<<endl;
+    cout<<"El valor maximo a prestar es:\t"<<puntaje<<endl<<endl;
+    cout<<"la cuota mensual a 24 meses con interes 1.5 EA es:\t"<<tota<<endl<<endl;
+    cout<<"la cuota mensual a 36 meses con interes 1.8 EA es:\t"<<tota1<<endl<<endl;
+    cout<<"la cuota mensual a 48 meses con interes 2.0 EA es:\t"<<tota2<<endl<<endl;
+    }cin.ignore(); return 0;
+}
